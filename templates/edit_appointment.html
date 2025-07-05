@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Appointment</title>
+</head>
+<body>
+  <h2>Edit Appointment</h2>
+  <form method="POST">
+    <label>New Date:</label><br>
+    <input type="date" name="date" value="{{ old_date }}" required><br><br>
+
+    <label>New Time:</label><br>
+    <input type="time" name="time" value="{{ old_time }}" required><br><br>
+
+    <label>Reason:</label><br>
+    <textarea name="reason">{{ reason }}</textarea><br><br>
+
+    <button type="submit">Save Changes</button>
+    <a href="{{ url_for('dashboard') }}">Cancel</a>
+  </form>
+</body>
+</html>

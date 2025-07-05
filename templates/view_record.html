@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>View Record</title>
+</head>
+<body>
+  <h2>📋 Health Record Details</h2>
+  <p><strong>Title:</strong> {{ record[0] }}</p>
+  <p><strong>Description:</strong> {{ record[1] }}</p>
+  <p><strong>Doctor:</strong> {{ record[4] }}</p>
+  <p><strong>Date:</strong> {{ record[3] }}</p>
+
+  <br>
+  <a href="{{ url_for('static', filename=record[2].replace('static/', '')) }}" download>
+    📥 Download Now
+  </a>
+  <br><br>
+  <a href="{{ url_for('dashboard') }}">← Back to Dashboard</a>
+</body>
+</html>

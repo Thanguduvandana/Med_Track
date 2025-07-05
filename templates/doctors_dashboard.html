@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Doctor Dashboard</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #f0f8ff, #ffffff);
+      padding: 30px;
+    }
+
+    h2 {
+      color: #003366;
+      text-align: center;
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+      padding: 12px;
+      border-bottom: 1px solid #ccc;
+      text-align: left;
+    }
+
+    th {
+      background-color: #0077cc;
+      color: white;
+    }
+
+    .logout {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .logout a {
+      text-decoration: none;
+      color: white;
+      background: #d9534f;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+
+    .logout a:hover {
+      background: #c9302c;
+    }
+
+    .upload_record {
+      background-color: #28a745;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .upload_record:hover {
+      background-color: #218838;
+    }
+
+    .delete_record {
+      background-color: #dc3545;
+      color: white;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .delete_record:hover {
+      background-color: #bb2d3b;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Welcome Doctor 👨‍⚕️ {{ doctor }}</h2>
+
+  <!-- Appointments -->
+  <div class="section">
+    <h3>📋 Patient Appointments</h3>
+    {% if appointments %}
+      <table>
+        <tr>
+          <th>Patient Email</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Reason</th>
+        </tr>
+        {% for appt in appointments %}
+        <tr>
+          <td>{{ appt[0] }}</td>
+          <td>{{ appt[1] }}</td>
+          <td>{{ appt[2] }}</td>
+          <td>{{ appt[3] }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    {% else %}
+      <p>No appointments available.</p>
+    {% endif %}
+  </div>
+
+  <!-- Patients -->
+  <div class="section">
+    <h3>👥 Registered Patients</h3>
+    {% if patients %}
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Gender</th>
+          <th>Health Problem</th>
+          <th>Phone</th>
+          <th>Upload</th>
+        </tr>
+        {% for patient in patients %}
+        <tr>
+          <td>{{ patient[0] }}</td>
+          <td>{{ patient[1] }}</td>
+          <td>{{ patient[2] }}</td>
+          <td>{{ patient[3] }}</td>
+          <td>{{ patient[4] }}</td>
+          <td>
+            <a href="{{ url_for('upload_record', patient_email=patient[1]) }}">
+              <button class="upload_record">Upload Record</button>
+            </a>
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    {% else %}
+      <p>No patients found.</p>
+    {% endif %}
+  </div>
+
+  <!-- Health Summaries -->
+  <div class="section">
+    <h3>📝 Health Summaries</h3>
+    {% if health_records %}
+      <table>
+        <tr>
+          <th>Patient</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Date</th>
+          <th>Action</th>
+        </tr>
+        {% for record in health_records %}
+        <tr>
+          <td>{{ record[0] }}</td>
+          <td>{{ record[1] }}</td>
+          <td>{{ record[2] }}</td>
+          <td>{{ record[3] }}</td>
+          <td>
+            <a href="{{ url_for('delete_health_record', record_id=record[4]) }}">
+              <button class="delete_record">🗑️ Delete</button>
+            </a>
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+    {% else %}
+      <p>No health summaries yet.</p>
+    {% endif %}
+  </div>
+
+  <div class="logout">
+    <a href="{{ url_for('logout') }}">Logout</a>
+  </div>
+
+</body>
+</html>

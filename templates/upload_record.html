@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Upload Health Record</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f0f8ff; padding: 30px; }
+    .form-container {
+      background: white;
+      padding: 25px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+    }
+    label, input, textarea {
+      display: block;
+      width: 100%;
+      margin-top: 15px;
+    }
+    input, textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    input[type="submit"] {
+      background-color: #0077cc;
+      color: white;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Upload Health Summary</h2>
+    <form method="POST">
+  <label><strong>Title:</strong></label><br>
+  <input type="text" name="title" required><br><br>
+
+  <label><strong>Description / Summary:</strong></label><br>
+  <textarea name="description" rows="5" cols="50" required></textarea><br><br>
+
+  <button type="submit">Submit Health Summary</button>
+</form>
+
+  </div>
+</body>
+</html>

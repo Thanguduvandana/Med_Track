@@ -1,0 +1,139 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    background: #e6f2ff;
+    color: #003366;
+    text-align: center;
+    min-height: 100vh;
+  }
+  
+  .navbar {
+    background-color: #003366;
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navbar h1 {
+    margin: 0;
+    font-size: 28px;
+    text-align: center;
+  }
+  
+  
+  .nav-links a {
+    margin: 0 15px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .nav-links a:hover {
+    text-decoration: underline;
+  }
+  
+  .hero {
+    padding: 80px 20px;
+  }
+  
+  .hero h2 {
+    font-size: 32px;
+    margin-bottom: 15px;
+  }
+  
+  .hero p {
+    font-size: 18px;
+    margin-bottom: 25px;
+  }
+  
+  .cta-button {
+    background-color: #0066cc;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+  
+  .cta-button:hover {
+    background-color: #004a99;
+  }
+  .logo {
+  max-width: 150px;
+  margin-bottom: 20px;
+}
+.form-container {
+  background-color: white;
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.form-container h2 {
+  color: #1f0066;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 90%;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+input[type="submit"] {
+  width: 94%;
+  padding: 12px;
+  background-color: #0077cc;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+input[type="submit"]:hover {
+  background-color: #005fa3;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.content-container {
+  max-width: 700px;
+  background-color: white;
+  margin: 80px auto;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #003366;
+}
+
+.content-container h2 {
+  text-align: center;
+  color: #0077cc;
+  margin-bottom: 20px;
+}
+
+
+
+  

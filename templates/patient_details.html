@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Profile - MedTrack</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #e6f2ff, #ffffff);
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 60px auto;
+      padding: 30px;
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #003366;
+      margin-bottom: 30px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    td {
+      padding: 12px;
+      border-bottom: 1px solid #ccc;
+      font-size: 16px;
+    }
+    td.label {
+      font-weight: bold;
+      width: 40%;
+      color: #003366;
+    }
+     .dashboard-link {
+      padding: 10px 20px;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+        }
+        .dashboard-link:hover {
+            background-color: #005fa3;
+        }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>👤 My Profile</h2>
+
+    {% if patient %}
+      <table>
+        <tr><td class="label">Name:</td><td>{{ patient[0] }}</td></tr>
+        <tr><td class="label">Email:</td><td>{{ patient[1] }}</td></tr>
+        <tr><td class="label">Gender:</td><td>{{ patient[2] }}</td></tr>
+        <tr><td class="label">Health Problem:</td><td>{{ patient[3] }}</td></tr>
+        <tr><td class="label">phone no:</td><td>{{ patient[4] }}</td></tr>
+      </table>
+      <br>
+      <br><button type="button" class="dashboard-link" onclick=window.location.href="{{ url_for('dashboard') }}">Back to Dashboard</button>
+    {% else %}
+      <p style="text-align: center; color: gray;">Profile not found.</p>
+    {% endif %}
+  </div>
+
+</body>
+</html>

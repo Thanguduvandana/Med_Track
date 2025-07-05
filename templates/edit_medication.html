@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit Medication</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    h2 {
+      color: #333;
+    }
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    input[type="text"], textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 3px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #28a745;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+    a {
+      text-decoration: none;
+      color: #007bff;
+      margin-left: 10px;
+    }
+    a:hover {
+      color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h2>Edit Medication</h2>
+  <form method="POST">
+    <label>Name:</label>
+    <input type="text" name="name" value="{{ medication[0] }}" required><br><br>
+    
+    <label>Dosage:</label>
+    <input type="text" name="dosage" value="{{ medication[1] }}"><br><br>
+
+    <label>Frequency:</label>
+    <input type="text" name="frequency" value="{{ medication[2] }}"><br><br>
+
+    <label>Notes:</label>
+    <textarea name="notes">{{ medication[3] }}</textarea><br><br>
+
+    <button type="submit">Update</button>
+    <a href="{{ url_for('dashboard') }}">Cancel</a>
+  </form>
+</body>
+</html>

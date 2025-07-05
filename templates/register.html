@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MedTrack Registration</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f8ff;
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .toggle-buttons {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .toggle-buttons button {
+      padding: 10px 20px;
+      margin: 0 10px;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #0077cc;
+      color: white;
+    }
+
+    .toggle-buttons button.active {
+      background-color: #005fa3;
+    }
+
+    form {
+      display: none;
+    }
+
+    form.active {
+      display: block;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    input[type="submit"] {
+      background-color: #28a745;
+      color: white;
+      margin-top: 20px;
+      border: none;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="toggle-buttons">
+    <button onclick="showForm('patient')" id="btn-patient" class="active">Patient</button>
+    <button onclick="showForm('doctor')" id="btn-doctor">Doctor</button>
+  </div>
+
+  <!-- Patient Registration Form -->
+  <form id="form-patient" class="active" method="POST" action="/register?role=Patient">
+    <label>Name:</label>
+    <input type="text" name="name" required>
+
+    <label>Email:</label>
+    <input type="email" name="email" required>
+
+    <label>Gender:</label>
+    <select name="gender" required>
+      <option value="">Select</option>
+      <option>Male</option>
+      <option>Female</option>
+      <option>Other</option>
+    </select>
+
+    <label>Health Problem:</label>
+    <input type="text" name="health_problem" required>
+
+    <label>Phone:</label>
+    <input type="text" name="phone" required>
+
+    <label>Password:</label>
+    <input type="password" name="password" required>
+
+    <label>Confirm Password:</label>
+    <input type="password" name="confirm_password" required>
+
+    <input type="submit" value="Register as Patient">
+  </form>
+
+  <!-- Doctor Registration Form -->
+  <form id="form-doctor" method="POST" action="/register?role=Doctor">
+    <label>Name:</label>
+    <input type="text" name="name" required>
+
+    <label>Email:</label>
+    <input type="email" name="email" required>
+
+    <label>Gender:</label>
+    <select name="gender" required>
+      <option value="">Select</option>
+      <option>Male</option>
+      <option>Female</option>
+      <option>Other</option>
+    </select>
+
+    <label>Specialization:</label>
+    <input type="text" name="health_problem" required>
+
+    <label>Phone:</label>
+    <input type="text" name="phone" required>
+
+    <label>Password:</label>
+    <input type="password" name="password" required>
+
+    <label>Confirm Password:</label>
+    <input type="password" name="confirm_password" required>
+
+    <input type="submit" value="Register as Doctor">
+  </form>
+</div>
+
+<script>
+  function showForm(role) {
+    document.getElementById('form-patient').classList.remove('active');
+    document.getElementById('form-doctor').classList.remove('active');
+    document.getElementById('btn-patient').classList.remove('active');
+    document.getElementById('btn-doctor').classList.remove('active');
+
+    if (role === 'patient') {
+      document.getElementById('form-patient').classList.add('active');
+      document.getElementById('btn-patient').classList.add('active');
+    } else {
+      document.getElementById('form-doctor').classList.add('active');
+      document.getElementById('btn-doctor').classList.add('active');
+    }
+  }
+</script>
+
+</body>
+</html>

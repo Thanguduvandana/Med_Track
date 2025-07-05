@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome to MedTrack</title>
+</head>
+<body>
+  <div class="navbar">
+    <h1>🩺 MedTrack</h1>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <div class="nav-links">
+      <a href="{{ url_for('register') }}">Sign Up</a>
+      <a href="{{ url_for('login') }}">Log In</a>
+      <a href="{{ url_for('about') }}">About Us</a>
+      <a href="{{ url_for('contact') }}">Contact Us</a>
+    </div>
+  </div>
+  <form></form>
+
+  <div class="hero">
+    <img src="{{ url_for('static', filename='images/med_logo.png') }}" alt="MedTrack Logo" class="logo">
+    <h2>Your Digital Health Companion</h2>
+    <p>Track appointments, prescriptions, medical records — all in one secure place.</p>
+    <a href="{{ url_for('register') }}" class="cta-button">Get Started</a>
+    <a href="{{ url_for('login') }}" class="cta-button">Already have an account</a>
+  </div>
+</body>
+</html>
+
