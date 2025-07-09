@@ -7,9 +7,9 @@ app = Flask(__name__)
 app.secret_key = 'your_secret_key'
 
 # --- AWS Setup ---
-dynamodb = boto3.resource('dynamodb', region_name='ap-south-1')
-sns = boto3.client('sns', region_name='ap-south-1')
-sns_topic_arn = 'arn:aws:sns:ap-south-1:YOUR_ACCOUNT_ID:YourSNSTopic'  # Replace with your actual topic ARN
+dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
+sns = boto3.client('sns', region_name='us-east-1')
+sns_topic_arn = 'arn:aws:sns:us-east-1:904233124678:MedTrack'  # Replace with your actual topic ARN
 
 # --- DynamoDB Tables ---
 users_table = dynamodb.Table('Users')
